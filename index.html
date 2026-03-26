@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hey Ethika ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main box */
+.container {
+    background: white;
+    padding: 60px;
+    border-radius: 40px;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Image style */
+#slide {
+    width: 300px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 70%;
+    margin-bottom: 40px;
+    border: 8px solid #ff4d6d;
+}
+
+/* Text */
+h1 {
+    color: #ff4d6d;
+}
+
+/* Buttons */
+button {
+    padding: 20px 33px;
+    font-size: 26px;
+    margin: 16px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#noBtn {
+    background-color: #dc3545;
+    color: white;
+    position: absolute;
+}
+
+/* Hidden box */
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="mainBox">
+
+    <!-- SLIDESHOW IMAGE -->
+    <img id="slide" src="photo1.jpg">
+
+    <h1>Hey Ethuu 😊</h1>
+    <p>I really love you...</p>
+    <h2>Will you go on a date with me? 💖</h2>
+
+    <button id="yesBtn">Yes 😍</button>
+    <button id="noBtn">No 😢</button>
+</div>
+
+<div class="container hidden" id="successBox">
+    <h1>Yayyyyy!!! 🎉💖</h1>
+    <p>You just made me the happiest person 😭❤️</p>
+</div>
+
+<script>
+
+/* ===== SLIDESHOW ===== */
+const pics = [
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg",
+  "photo4.jpg",
+  "photo5.jpg"
+];
+
+let i = 0;
+
+setInterval(() => {
+  i = (i + 1) % pics.length;
+  document.getElementById("slide").src = pics[i];
+}, 2000);
+
+/* ===== BUTTON LOGIC ===== */
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+yesBtn.addEventListener("click", () => {
+    document.getElementById("mainBox").classList.add("hidden");
+    document.getElementById("successBox").classList.remove("hidden");
+});
+
+</script>
+
+</body>
+</html>
